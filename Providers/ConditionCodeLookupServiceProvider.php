@@ -4,7 +4,7 @@
  * This file is part of CarePlan Manager by CircleLink Health.
  */
 
-namespace subzero10\Core\Providers;
+namespace subzero10\ConditionCodeLookup\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
