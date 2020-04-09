@@ -1,0 +1,31 @@
+{
+  "name": "subzero10/laravel-condition-code-lookup",
+  "type": "laravel-module",
+  "description": "",
+  "authors": [
+    {
+      "name": "Pangratios Cosma",
+      "email": "pagcosma@gmail.com"
+    }
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "subzero10\\ConditionCodeLookup\\Providers\\ConditionCodeLookupServiceProvider"
+      ],
+      "aliases": {
+      }
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "subzero10\\ConditionCodeLookup\\": ""
+    },
+    "files": [
+    ]
+  },
+  "require": {
+    "php": "*",
+    "laravel/framework": "*"
+  }
+}
