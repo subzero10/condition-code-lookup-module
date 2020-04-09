@@ -7,6 +7,9 @@
 namespace subzero10\ConditionCodeLookup\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use subzero10\ConditionCodeLookup\ConditionCodeLookup;
+use subzero10\ConditionCodeLookup\Console\Commands\LookupCondition;
+use subzero10\ConditionCodeLookup\Services\ConditionCodeLookupService;
 
 class ConditionCodeLookupServiceProvider extends ServiceProvider
 {
@@ -16,6 +19,15 @@ class ConditionCodeLookupServiceProvider extends ServiceProvider
      * @var bool
      */
     protected $defer = false;
+
+    /**
+     * All of the container singletons that should be registered.
+     *
+     * @var array
+     */
+    public $singletons = [
+        ConditionCodeLookup::class => ConditionCodeLookupService::class,
+    ];
 
     /**
      * Boot the application events.
@@ -30,6 +42,9 @@ class ConditionCodeLookupServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerConfig();
+        $this->commands([
+            LookupCondition::class
+        ]);
     }
 
     /**
