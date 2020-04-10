@@ -34,6 +34,9 @@ class ConditionCodeLookupServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //any better ways to do this?
+        $path = getcwd() . '/Modules/ConditionCodeLookup/Database/Migrations';
+        $this->loadMigrationsFrom($path);
     }
 
     /**
@@ -43,7 +46,7 @@ class ConditionCodeLookupServiceProvider extends ServiceProvider
     {
         $this->registerConfig();
         $this->commands([
-            LookupCondition::class
+            LookupCondition::class,
         ]);
     }
 
