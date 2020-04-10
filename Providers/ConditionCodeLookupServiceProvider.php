@@ -58,7 +58,7 @@ class ConditionCodeLookupServiceProvider extends ServiceProvider
 
         $this->mergeConfigFrom(
             __DIR__ . '/../Config/config.php',
-            'core'
+            'condition-code-lookup'
         );
     }
 }
