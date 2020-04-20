@@ -14,13 +14,6 @@ use subzero10\ConditionCodeLookup\Services\ConditionCodeLookupService;
 class ConditionCodeLookupServiceProvider extends ServiceProvider
 {
     /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
-
-    /**
      * All of the container singletons that should be registered.
      *
      * @var array
@@ -28,6 +21,12 @@ class ConditionCodeLookupServiceProvider extends ServiceProvider
     public $singletons = [
         ConditionCodeLookup::class => ConditionCodeLookupService::class,
     ];
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
 
     /**
      * Boot the application events.
@@ -35,7 +34,7 @@ class ConditionCodeLookupServiceProvider extends ServiceProvider
     public function boot()
     {
         //any better ways to do this?
-        $path = getcwd() . '/Modules/ConditionCodeLookup/Database/Migrations';
+        $path = getcwd().'/Modules/ConditionCodeLookup/Database/Migrations';
         $this->loadMigrationsFrom($path);
     }
 
@@ -56,11 +55,11 @@ class ConditionCodeLookupServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            __DIR__ . '/../Config/config.php' => config_path('condition-code-lookup.php'),
+            __DIR__.'/../Config/config.php' => config_path('condition-code-lookup.php'),
         ], 'config');
 
         $this->mergeConfigFrom(
-            __DIR__ . '/../Config/config.php',
+            __DIR__.'/../Config/config.php',
             'condition-code-lookup'
         );
     }

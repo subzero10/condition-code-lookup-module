@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * This file is part of CarePlan Manager by CircleLink Health.
+ */
+
 namespace subzero10\ConditionCodeLookup\Console\Commands;
 
 use Illuminate\Console\Command;
@@ -10,18 +14,17 @@ use Symfony\Component\Console\Input\InputArgument;
 class LookupCondition extends Command
 {
     /**
-     * The console command name.
-     *
-     * @var string
-     */
-    protected $name = 'lookup:condition';
-
-    /**
      * The console command description.
      *
      * @var string
      */
     protected $description = 'Look up condition codes.';
+    /**
+     * The console command name.
+     *
+     * @var string
+     */
+    protected $name = 'lookup:condition';
 
     /**
      * Create a new command instance.
@@ -40,7 +43,6 @@ class LookupCondition extends Command
      */
     public function handle()
     {
-
         $type       = $this->argument('type');
         $acceptable = ['icd9', 'icd10', 'snomed', 'any'];
         if ( ! in_array($type, $acceptable)) {
@@ -54,7 +56,7 @@ class LookupCondition extends Command
         /** @var ConditionCodeLookup $service */
         $service = app(ConditionCodeLookupService::class);
         $lookup  = $service->{$type}($code);
-        $result = json_encode($lookup);
+        $result  = json_encode($lookup);
         $this->info("Result: $result");
     }
 
@@ -79,7 +81,6 @@ class LookupCondition extends Command
     protected function getOptions()
     {
         return [
-
         ];
     }
 }

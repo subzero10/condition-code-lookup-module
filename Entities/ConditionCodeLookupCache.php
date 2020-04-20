@@ -1,21 +1,25 @@
 <?php
 
+/*
+ * This file is part of CarePlan Manager by CircleLink Health.
+ */
+
 namespace subzero10\ConditionCodeLookup\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class ConditionCodeLookupCache
+ * Class ConditionCodeLookupCache.
  *
- * @package CircleLinkHealth\ConditionCodeLookup\Entities
- * @property int $id
- * @property string $type
- * @property string $code
- * @property string $name
+ * @property int            $id
+ * @property string         $type
+ * @property string         $code
+ * @property string         $name
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property string $request_url
- * @property string $response_raw
+ * @property string         $request_url
+ * @property string         $response_raw
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache query()
@@ -31,8 +35,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ConditionCodeLookupCache extends Model
 {
-    protected $table = 'condition_code_lookup_cache';
-
     protected $fillable = [
         'type',
         'code',
@@ -40,4 +42,5 @@ class ConditionCodeLookupCache extends Model
         'request_url',
         'response_raw',
     ];
+    protected $table = 'condition_code_lookup_cache';
 }
