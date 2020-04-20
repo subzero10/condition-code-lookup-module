@@ -19,7 +19,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $updated_at
  * @property string         $request_url
  * @property string         $response_raw
- *
  * @method static \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache query()
