@@ -4,7 +4,7 @@
  * This file is part of CarePlan Manager by CircleLink Health.
  */
 
-namespace subzero10\ConditionCodeLookup;
+namespace CircleLinkHealth\ConditionCodeLookup;
 
 interface ConditionCodeLookup
 {

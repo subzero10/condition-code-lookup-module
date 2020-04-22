@@ -4,11 +4,11 @@
  * This file is part of CarePlan Manager by CircleLink Health.
  */
 
-namespace subzero10\ConditionCodeLookup\Services;
+namespace CircleLinkHealth\ConditionCodeLookup\Services;
 
 use GuzzleHttp\Client;
-use subzero10\ConditionCodeLookup\ConditionCodeLookup;
-use subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache;
+use CircleLinkHealth\ConditionCodeLookup\ConditionCodeLookup;
+use CircleLinkHealth\ConditionCodeLookup\Entities\ConditionCodeLookupCache;
 
 class ConditionCodeLookupService implements ConditionCodeLookup
 {
