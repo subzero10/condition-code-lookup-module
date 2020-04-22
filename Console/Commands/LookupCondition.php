@@ -6,9 +6,9 @@
 
 namespace CircleLinkHealth\ConditionCodeLookup\Console\Commands;
 
-use Illuminate\Console\Command;
 use CircleLinkHealth\ConditionCodeLookup\ConditionCodeLookup;
 use CircleLinkHealth\ConditionCodeLookup\Services\ConditionCodeLookupService;
+use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
 
 class LookupCondition extends Command

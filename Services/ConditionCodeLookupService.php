@@ -6,9 +6,9 @@
 
 namespace CircleLinkHealth\ConditionCodeLookup\Services;
 
-use GuzzleHttp\Client;
 use CircleLinkHealth\ConditionCodeLookup\ConditionCodeLookup;
 use CircleLinkHealth\ConditionCodeLookup\Entities\ConditionCodeLookupCache;
+use GuzzleHttp\Client;
 
 class ConditionCodeLookupService implements ConditionCodeLookup
 {

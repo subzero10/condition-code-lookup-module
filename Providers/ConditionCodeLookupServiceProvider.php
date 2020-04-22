@@ -6,10 +6,10 @@
 
 namespace CircleLinkHealth\ConditionCodeLookup\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use CircleLinkHealth\ConditionCodeLookup\ConditionCodeLookup;
 use CircleLinkHealth\ConditionCodeLookup\Console\Commands\LookupCondition;
 use CircleLinkHealth\ConditionCodeLookup\Services\ConditionCodeLookupService;
+use Illuminate\Support\ServiceProvider;
 
 class ConditionCodeLookupServiceProvider extends ServiceProvider
 {
