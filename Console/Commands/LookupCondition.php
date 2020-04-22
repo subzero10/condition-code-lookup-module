@@ -4,11 +4,11 @@
  * This file is part of CarePlan Manager by CircleLink Health.
  */
 
-namespace subzero10\ConditionCodeLookup\Console\Commands;
+namespace CircleLinkHealth\ConditionCodeLookup\Console\Commands;
 
 use Illuminate\Console\Command;
-use subzero10\ConditionCodeLookup\ConditionCodeLookup;
-use subzero10\ConditionCodeLookup\Services\ConditionCodeLookupService;
+use CircleLinkHealth\ConditionCodeLookup\ConditionCodeLookup;
+use CircleLinkHealth\ConditionCodeLookup\Services\ConditionCodeLookupService;
 use Symfony\Component\Console\Input\InputArgument;
 
 class LookupCondition extends Command

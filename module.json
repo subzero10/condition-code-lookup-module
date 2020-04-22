@@ -6,7 +6,7 @@
     "active": 1,
     "order": 0,
     "providers": [
-        "subzero10\\ConditionCodeLookup\\Providers\\ConditionCodeLookupServiceProvider"
+        "CircleLinkHealth\\ConditionCodeLookup\\Providers\\ConditionCodeLookupServiceProvider"
     ],
     "aliases": {},
     "files": [],

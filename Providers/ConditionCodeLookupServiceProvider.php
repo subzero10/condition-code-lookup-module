@@ -4,12 +4,12 @@
  * This file is part of CarePlan Manager by CircleLink Health.
  */
 
-namespace subzero10\ConditionCodeLookup\Providers;
+namespace CircleLinkHealth\ConditionCodeLookup\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use subzero10\ConditionCodeLookup\ConditionCodeLookup;
-use subzero10\ConditionCodeLookup\Console\Commands\LookupCondition;
-use subzero10\ConditionCodeLookup\Services\ConditionCodeLookupService;
+use CircleLinkHealth\ConditionCodeLookup\ConditionCodeLookup;
+use CircleLinkHealth\ConditionCodeLookup\Console\Commands\LookupCondition;
+use CircleLinkHealth\ConditionCodeLookup\Services\ConditionCodeLookupService;
 
 class ConditionCodeLookupServiceProvider extends ServiceProvider
 {
