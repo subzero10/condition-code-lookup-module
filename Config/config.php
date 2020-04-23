@@ -17,6 +17,6 @@ return [
         ],
     ],
     'cache' => [
-        'enable'   => env('CCL_CACHE_ENABLE', false),
+        'enable' => env('CCL_CACHE_ENABLE', false),
     ],
 ];
