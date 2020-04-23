@@ -6,8 +6,8 @@
 
 namespace CircleLinkHealth\ConditionCodeLookup\Console\Commands;
 
-use CircleLinkHealth\ConditionCodeLookup\ConditionCodeLookup;
 use CircleLinkHealth\ConditionCodeLookup\Services\ConditionCodeLookupService;
+use CircleLinkHealth\Core\Exceptions\InvalidArgumentException;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -27,37 +27,33 @@ class LookupCondition extends Command
     protected $name = 'lookup:condition';
 
     /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      *
      * @return void
      */
     public function handle()
     {
-        $type       = $this->argument('type');
-        $acceptable = ['icd9', 'icd10', 'snomed', 'any'];
-        if ( ! in_array($type, $acceptable)) {
-            $this->error('Invalid type. Only one of icd9, icd10, snomed or any accepted');
+        $type = $this->argument('type');
+        $code = $this->argument('code');
+
+        try {
+            $result = self::lookup($code, $type);
+        } catch (InvalidArgumentException $e) {
+            $this->error($e->getMessage());
 
             return;
         }
 
-        $code = $this->argument('code');
+        $this->info('Result: '.json_encode($result));
+    }
 
-        /** @var ConditionCodeLookup $service */
-        $service = app(ConditionCodeLookupService::class);
-        $lookup  = $service->{$type}($code);
-        $result  = json_encode($lookup);
-        $this->info("Result: $result");
+    public static function lookup(string $code, string $type)
+    {
+        if ( ! in_array($type, ['icd9', 'icd10', 'snomed', 'any'])) {
+            throw new InvalidArgumentException('Invalid type. Only one of icd9, icd10, snomed or any accepted');
+        }
+
+        return app(ConditionCodeLookupService::class)->{$type}($code);
     }
 
     /**
