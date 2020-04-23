@@ -19,17 +19,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $updated_at
  * @property string         $request_url
  * @property string         $response_raw
- * @method   static         \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache newModelQuery()
- * @method   static         \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache newQuery()
- * @method   static         \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache query()
- * @method   static         \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache whereCode($value)
- * @method   static         \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache whereCreatedAt($value)
- * @method   static         \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache whereId($value)
- * @method   static         \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache whereName($value)
- * @method   static         \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache whereRequestUrl($value)
- * @method   static         \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache whereResponseRaw($value)
- * @method   static         \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache whereType($value)
- * @method   static         \Illuminate\Database\Eloquent\Builder|\subzero10\ConditionCodeLookup\Entities\ConditionCodeLookupCache whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class ConditionCodeLookupCache extends Model

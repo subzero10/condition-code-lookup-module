@@ -9,6 +9,6 @@
 Since codes don't change, it is recommended to enable caching:
 - Publish config file
 ```
-php artisan vendor:publish --provider="subzero10\ConditionCodeLookup\Providers\ConditionCodeLookupServiceProvider"
+php artisan vendor:publish --provider="CircleLinkHealth\ConditionCodeLookup\Providers\ConditionCodeLookupServiceProvider"
 ```
 - Set DB configuration in config file
