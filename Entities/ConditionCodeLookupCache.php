@@ -20,6 +20,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string         $request_url
  * @property string         $response_raw
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|\CircleLinkHealth\ConditionCodeLookup\Entities\ConditionCodeLookupCache newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\CircleLinkHealth\ConditionCodeLookup\Entities\ConditionCodeLookupCache newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\CircleLinkHealth\ConditionCodeLookup\Entities\ConditionCodeLookupCache query()
  */
 class ConditionCodeLookupCache extends Model
 {
