@@ -9,6 +9,7 @@ namespace CircleLinkHealth\ConditionCodeLookup\Services;
 use CircleLinkHealth\ConditionCodeLookup\ConditionCodeLookup;
 use CircleLinkHealth\ConditionCodeLookup\Entities\ConditionCodeLookupCache;
 use GuzzleHttp\Client;
+use Illuminate\Support\Arr;
 
 class ConditionCodeLookupService implements ConditionCodeLookup
 {
@@ -121,7 +122,7 @@ class ConditionCodeLookupService implements ConditionCodeLookup
             }
 
             $json   = json_decode($contents);
-            $result = array_last(array_last(array_last($json)));
+            $result = Arr::last(Arr::last(Arr::last($json)));
             if ($result) {
                 //2.1 store in cache
                 $this->storeInCache(self::ICD9, $contents, $result, $requestUrl, $contents);
