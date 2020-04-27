@@ -85,8 +85,8 @@ class ConditionCodeLookupService implements ConditionCodeLookup
             }
 
             $json = json_decode($contents);
-
-            $result = array_last(array_last(array_last($json)));
+    
+            $result = Arr::last(Arr::last(Arr::last($json)));
             if ($result) {
                 //2.1 store in cache
                 $this->storeInCache(self::ICD10, $contents, $result, $requestUrl, $contents);
