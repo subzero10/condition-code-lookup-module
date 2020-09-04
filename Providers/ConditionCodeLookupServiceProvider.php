@@ -9,9 +9,10 @@ namespace CircleLinkHealth\ConditionCodeLookup\Providers;
 use CircleLinkHealth\ConditionCodeLookup\ConditionCodeLookup;
 use CircleLinkHealth\ConditionCodeLookup\Console\Commands\LookupCondition;
 use CircleLinkHealth\ConditionCodeLookup\Services\ConditionCodeLookupService;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class ConditionCodeLookupServiceProvider extends ServiceProvider
+class ConditionCodeLookupServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * All of the container singletons that should be registered.
@@ -21,28 +22,23 @@ class ConditionCodeLookupServiceProvider extends ServiceProvider
     public $singletons = [
         ConditionCodeLookup::class => ConditionCodeLookupService::class,
     ];
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
-
-    /**
-     * Boot the application events.
-     */
-    public function boot()
+    
+    public function provides()
     {
-        //any better ways to do this?
-        $path = getcwd().'/Modules/ConditionCodeLookup/Database/Migrations';
-        $this->loadMigrationsFrom($path);
+        return [
+            LookupCondition::class,
+            ConditionCodeLookup::class,
+        ];
     }
-
+    
     /**
      * Register the service provider.
      */
     public function register()
     {
+        $path = getcwd().'/Modules/ConditionCodeLookup/Database/Migrations';
+        $this->loadMigrationsFrom($path);
+
         $this->registerConfig();
         $this->commands([
             LookupCondition::class,
