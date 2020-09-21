@@ -22,7 +22,7 @@ class ConditionCodeLookupServiceProvider extends ServiceProvider implements Defe
     public $singletons = [
         ConditionCodeLookup::class => ConditionCodeLookupService::class,
     ];
-    
+
     public function provides()
     {
         return [
@@ -30,7 +30,7 @@ class ConditionCodeLookupServiceProvider extends ServiceProvider implements Defe
             ConditionCodeLookup::class,
         ];
     }
-    
+
     /**
      * Register the service provider.
      */
