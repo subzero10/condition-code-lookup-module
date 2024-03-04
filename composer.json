@@ -4,8 +4,8 @@
   "description": "",
   "authors": [
     {
-      "name": "Pangratios Cosma",
-      "email": "pagcosma@gmail.com"
+      "name": "Michalis Antoniou",
+      "email": "mantoniou@circlelinkhealth.com"
     }
   ],
   "extra": {
@@ -23,10 +23,5 @@
     },
     "files": [
     ]
-  },
-  "require": {
-    "php": "*",
-    "ext-curl": "*",
-    "laravel/framework": "*"
   }
 }
