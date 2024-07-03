@@ -1,9 +1,5 @@
 <?php
 
-/*
- * This file is part of CarePlan Manager by CircleLink Health.
- */
-
 namespace CircleLinkHealth\ConditionCodeLookup\Services;
 
 use CircleLinkHealth\ConditionCodeLookup\ConditionCodeLookup;
@@ -28,10 +24,7 @@ class ConditionCodeLookupService implements ConditionCodeLookup
     }
 
     /**
-     * @param $code
-     *
      * @throws \Exception
-     *
      * @return array
      */
     public function any($code)
@@ -46,7 +39,7 @@ class ConditionCodeLookupService implements ConditionCodeLookup
                         ? self::ICD9
                         : self::ICD10;
 
-                    //exit the loop
+                    // exit the loop
                     return false;
                 }
 
@@ -60,15 +53,11 @@ class ConditionCodeLookupService implements ConditionCodeLookup
     }
 
     /**
-     * @param $code
-     *
      * @throws \Exception
-     *
-     * @return mixed
      */
-    public function icd10($code)
+    public function icd10($code, $return = 'name')
     {
-        //1. try from cache
+        // 1. try from cache
         $result       = null;
         $cacheEnabled = config('condition-code-lookup.cache.enable', false);
         if ($cacheEnabled) {
@@ -86,10 +75,16 @@ class ConditionCodeLookupService implements ConditionCodeLookup
 
             $json = json_decode($contents);
 
-            $result = Arr::last(Arr::last(Arr::last($json)));
-            if ($result) {
-                //2.1 store in cache
-                $this->storeInCache(self::ICD10, $contents, $result, $requestUrl, $contents);
+            if ('name' === $return) {
+                $result = Arr::last(Arr::last(Arr::last($json)));
+                if ($result) {
+                    // 2.1 store in cache
+                    $this->storeInCache(self::ICD10, $contents, $result, $requestUrl, $contents);
+                }
+            }
+
+            if ('code' === $return) {
+                $result = Arr::first(Arr::last(Arr::last($json)));
             }
         }
 
@@ -97,22 +92,19 @@ class ConditionCodeLookupService implements ConditionCodeLookup
     }
 
     /**
-     * @param $code
-     *
      * @throws \Exception
-     *
      * @return string
      */
     public function icd9($code)
     {
-        //1. try from cache
+        // 1. try from cache
         $result       = null;
         $cacheEnabled = config('condition-code-lookup.cache.enable', false);
         if ($cacheEnabled) {
             $result = $this->getFromCache(self::ICD9, $code);
         }
         if ( ! $result) {
-            //2. try from api
+            // 2. try from api
             $apiUrl     = config('condition-code-lookup.api_urls.icd9')[0];
             $requestUrl = "$apiUrl?terms=$code&cf";
             $response   = $this->client->get($requestUrl);
@@ -124,12 +116,12 @@ class ConditionCodeLookupService implements ConditionCodeLookup
             $json   = json_decode($contents);
             $result = Arr::last(Arr::last(Arr::last($json)));
             if ($result) {
-                //2.1 store in cache
+                // 2.1 store in cache
                 $this->storeInCache(self::ICD9, $contents, $result, $requestUrl, $contents);
             }
         }
 
-        //3. return result
+        // 3. return result
         return $result;
     }
 
